@@ -41,17 +41,12 @@ def findLetters(sentences):
 
     # loop through each sentence or phrase in sentences
     for item in sentences:
+        time = re.findall(reg, item)
+        for word in time:
+            reg1 = '\d\s?[(am)|(pm)]'
+            time2 = re.findall(reg1, word)
+            empty_list.append(time2)
 
-    # find all the words that match the regular expression in each sentence
-       time = re.findall(reg, item)
-
-    # loop through the found words and add the words to your empty list
-    for word in time:
-        reg1 = '\d\s?[am|pm]'
-        time2 = re.findall(reg1, word)
-        empty_list.append(time2)
-
-    #return the list of the last letter of all words that begin or end with a capital letter
     return empty_list
 
 
